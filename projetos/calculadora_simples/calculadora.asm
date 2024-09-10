@@ -1,41 +1,49 @@
 .data 
-	numero_1: .asciiz "Digite o primeiro número: "
+	numero_1: .asciiz "\nDigite o primeiro número: "
 	numero_2: .asciiz "Digite o segundo número: "
-	opcao: .asciiz "escolha uma operação:\n1)adição\n2)subtração\n3)multiplicação\n4)divisão\n"
+	opcao: .asciiz "\nescolha uma operação:\n1)adição\n2)subtração\n3)multiplicação\n4)divisão\n0)sair\n"
 	resultado: .asciiz "Resultado: "
 .text
-	# exibindo a mensagem
-	li $v0,4
-	la $a0,numero_1
-	syscall
-	# lendo o primeiro número
-	li $v0, 5
-	syscall 
+
+	while:
+		# exibindo a mensagem
+		li $v0,4
+		la $a0,numero_1
+		syscall
+		# lendo o primeiro número
+		li $v0, 5
+		syscall 
 	
-	move $t0,$v0 # movendo o valor para $t0
-	# exibindo a mensagem
-	li $v0,4
-	la $a0, numero_2
-	syscall
-	# lendo o segundo número
-	li $v0,5
-	syscall 
+		move $t0,$v0 # movendo o valor para $t0
+		# exibindo a mensagem
+		li $v0,4
+		la $a0, numero_2
+		syscall
+		# lendo o segundo número
+		li $v0,5
+		syscall 
 	
-	move $t1,$v0 # movendo o valor para $t1
-	# exibindo mensagem
-	li $v0,4
-	la $a0,opcao
-	syscall 
-	# lendo a opção escolhida
-	li $v0, 5
-	syscall
+		move $t1,$v0 # movendo o valor para $t1
+		# exibindo mensagem
+		li $v0,4
+		la $a0,opcao
+		syscall 
+		# lendo a opção escolhida
+		li $v0, 5
+		syscall
 	
-	move $t3,$v0
+		move $t3,$v0
 	
-	beq $t3,1,soma
-	beq $t3,2,subtracao
-	beq $t3,3,multiplicacao
-	beq $t3,4,divisao
+		beq $t3,1,soma
+		beq $t3,2,subtracao
+		beq $t3,3,multiplicacao
+		beq $t3,4,divisao
+		beq $t3,0,sair
+		
+	sair:
+		# finalizando o programa
+		li $v0,10
+		syscall
 	#divisão
 	divisao:
 		# exibe a mensagem resultado
@@ -48,10 +56,7 @@
 		li $v0,1
 		move $a0,$s0
 		syscall
-		# finalizando o programa
-		li $v0,10
-		syscall
-		
+		j while
 		
 	#multiplicação
 	multiplicacao:
@@ -66,9 +71,7 @@
 		move $a0,$s0
 		syscall
 		
-		# finalizando o programe
-		li $v0,10
-		syscall
+		j while
 		
 	#subtração
 	subtracao:
@@ -84,9 +87,7 @@
 		move $a0,$s0
 		syscall
 		
-		# finalizamos o progrma
-		li $v0,10
-		syscall 
+		j while
 	# soma
 	soma:
 		# exibe a mensagem resultado
@@ -102,9 +103,7 @@
 
 		syscall
 		
-		li $v0,10 # finaliza o programa
-		
-		syscall   
+		j while
 		
 		
 		
