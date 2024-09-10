@@ -1,5 +1,5 @@
 .data
-	caractere: .byte 'A' # aaractere a ser impresso
+	caractere: .byte 'A' # caractere a ser impresso
 
 .text
 
