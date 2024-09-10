@@ -43,3 +43,11 @@
     - li $v0,7 -> ler double
     - li $v0,8 -> ler String ou char
     - li $v0,10 -> encerrar programa principal
+
+## COMANDOS CONDICIONAIS
+    - beg $t1,$t2,label -> Se $t1 for iqual a $t2, execute a partir do rótulo label
+    - bne $t1,$t2,label -> Se $t1 for diferente de $t2, execute a partir do rótulo label
+    - blt $t1,$t2,label -> Se $t1 for menor que $t2, execute a partir do rótulo label
+    - bgt $t1,$t2,label -> Se $t1 for maior que $t2, execute a partir do rótulo label
+    - ble $t1,$t2,label -> Se $t1 for menor ou iqual a $t2, execute a a partir do rótulo label
+    - bge $t1,$t2,label -> Se $t1 for maior ou igual a $t2, execute a partir do rótulo label 
