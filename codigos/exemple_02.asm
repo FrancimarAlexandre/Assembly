@@ -22,3 +22,4 @@
 	# chamando a syscall para imprimir o valor
 	li $v0, 1  # Sinaliza a syscall de impressão de inteiro
 	syscall    # Executa a impressão
+
