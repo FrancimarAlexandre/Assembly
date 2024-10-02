@@ -1,3 +1,4 @@
+# somando três números
 .data
 	_a: .word 7
 	_b: .word 9
