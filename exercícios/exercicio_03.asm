@@ -1,3 +1,5 @@
+# 3 – Escreva um procedimento recursivo que
+# calcule a exponencial de um número.
 .data
 	# mensagem 
 	_msmBase: .asciiz "Base: "
