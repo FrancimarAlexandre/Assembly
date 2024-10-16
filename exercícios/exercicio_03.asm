@@ -1,32 +1,53 @@
-# 3 – Escreva um procedimento recursivo que
-# calcule a exponencial de um número.
-.data 
-	# mensagens
-	msmBase: .asciiz "Digite a base: "
-	msmExpoente: .asciiz "Digite o Expoente: "
-	msmResultado: .asciiz "Resultado: "
+.data
+	# mensagem 
+	_msmBase: .asciiz "Base: "
+	_msmExpoente: .asciiz "Expoente: "
+	_msmResultado: .asciiz "resultado: "
+	_resultado: .word 1
 .text
-.globl main:
-	# Função principal
 	main:
-		# lendo o valor da base
-		li $v0,4
-		la $a0,msmBase
+		
+		li $v0,4	
+		la $a0,_msmBase	
 		syscall
 		
 		li $v0,5
 		syscall
-		move $t0,$v0 # base $t0
+		move $t0,$v0 # $t0 -> base
 		
-		# lendo o expoente
 		li $v0,4
-		la $v0,msmExpoente
-		syscall
+		la $a0,_msmExpoente
+		syscall 
 		
 		li $v0,5
 		syscall
-		move $t1,$v0 # expoente $t1
+		move $t1,$v0 # $t1 -> expoente
+		j power
 		
 	power:
+		beq $t1,0,finalBase
+		lw $a0,_resultado
+		mul $t4,$t0,$a0
+		sw $t4,_resultado
+		subi $t1,$t1,1
+		j power
 	
+	finalBase:
+		li $v0,4
+		la $a0, _msmResultado
+		syscall
+		lw $a0,_resultado
+		li $v0,1
+		syscall
+		
+		j sair
+	sair:
+		li $v0,10
+		syscall
+		
+	final:
+		li $v0,4
+		la $a0,_msmResultado
+		syscall
+
 		
