@@ -47,9 +47,6 @@
 		li $v0,10
 		syscall
 		
-	final:
-		li $v0,4
-		la $a0,_msmResultado
-		syscall
+	
 
 		
