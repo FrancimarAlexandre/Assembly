@@ -1,6 +1,6 @@
 .data	
 	# diretório do arquivo
-	dir_arq: .asciiz "/home/apenasudev/Documents/github/Assembly/projetos/Sig - cadastro de usuários/data.txt"  # endereço dispensável quando o arquivo está no mesmo diretório
+	dir_arq: .asciiz "/home/apenasudev/Documents/github/Assembly/projetos/Sig - cadastro de usuários/data.txt"  
 	# buffer para o conteúdo do arquivo
 	conteudoArq: .space 1024  # reservando 1024 bytes para o conteúdo do arquivo
 	# mensagem do menu
