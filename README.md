@@ -4,7 +4,7 @@
 
 ## Conjunto de instruções MIPS
 
-    - Insttução é uma palavra da linguagem
+    - Instrução é uma palavra da linguagem
     - ISA MIPS
         - Instruções possuem até 3 operandos
         - ISA = Instruction Set Architecture
