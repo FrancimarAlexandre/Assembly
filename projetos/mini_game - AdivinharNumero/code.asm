@@ -8,7 +8,7 @@
 	text_erro_maior: .asciiz "O valor digitado é maior que o número sorteado\n"
 	
 	text_vitoria: .asciiz "Parabéns! o valor digitado está correto"
-	text_derrota: .asciiz "Gamer Over! você excedeu o limite de tentativas.\n p número sorteado: "
+	text_derrota: .asciiz "Gamer Over! você excedeu o limite de tentativas.\nO número sorteado: "
 	
 	# valor inicial de tentativas
 	tentativas: .word 6
@@ -29,6 +29,7 @@
 		la $a0,text_incial
 		syscall
 	while: # loop principal do game
+		beqz $t3, fim_game  # Se $t3 == 0,
 		# texto solicitando valor
 		li $v0,4
 		la $a0,text_valor
@@ -42,11 +43,11 @@
 		
 		#lw $t2,n # carregando o valor teste para o registrador $t2
 		
-		# condicionais
-		beq $t3,1,fim_game # if tentativas == 1
+		beq $t1,$t2,vitoria # if valor_digitado == valor_teste
 		blt $t1,$t2,erro_menor # if valor_digtado < valor_teste
 		bgt $t1,$t2,erro_maior # if valor_digtado < valor_teste		
-		beq $t1,$t2,vitoria # if valor_digitado == valor_teste
+		
+		
 		# finalizando 
 		li $v0,10
 		syscall
