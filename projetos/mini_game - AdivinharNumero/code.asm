@@ -29,7 +29,7 @@
 		la $a0,text_incial
 		syscall
 	while: # loop principal do game
-		beqz $t3, fim_game  # Se $t3 == 0,
+		beqz $t3, fim_game  # if tentativas == 0
 		# texto solicitando valor
 		li $v0,4
 		la $a0,text_valor
