@@ -43,7 +43,7 @@
 		#lw $t2,n # carregando o valor teste para o registrador $t2
 		
 		# condicionais
-		beq $t3,$zero,fim_game # if tentativas == 0
+		beq $t3,1,fim_game # if tentativas == 1
 		blt $t1,$t2,erro_menor # if valor_digtado < valor_teste
 		bgt $t1,$t2,erro_maior # if valor_digtado < valor_teste		
 		beq $t1,$t2,vitoria # if valor_digitado == valor_teste
